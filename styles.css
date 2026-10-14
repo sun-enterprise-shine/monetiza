@@ -31,6 +31,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .brand span { color: var(--plum); }
 .beta { font-size: 13px; color: var(--plum); background: var(--plum-soft); padding: 3px 10px; border-radius: 99px; }
 .foot { width: min(100% - 32px, 720px); margin: 56px auto 32px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.foot p + p { margin-top: 8px; }
 main { outline: none; padding-bottom: 8px; }
 
 /* botões */
