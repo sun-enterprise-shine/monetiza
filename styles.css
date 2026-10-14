@@ -170,3 +170,5 @@ textarea:focus, input[type=text]:focus { border-color: var(--jade); outline: non
   .step b { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.foot p + p { margin-top: 8px; }
