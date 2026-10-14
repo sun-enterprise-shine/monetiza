@@ -87,6 +87,7 @@ textarea:focus, input[type=text]:focus { border-color: var(--jade); outline: non
 .opt { display: flex; gap: 12px; align-items: center; min-height: 54px; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: var(--r-sm); background: var(--surface); cursor: pointer; }
 .opt input { width: 20px; height: 20px; accent-color: var(--jade); flex: none; margin: 0; }
 .opt:has(input:checked) { border-color: var(--jade); background: var(--jade-soft); }
+.opt.off { opacity: .45; cursor: not-allowed; }
 .other { margin-top: 10px; }
 .nav { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-top: 28px; }
 .nav .btn { flex: 1; max-width: 260px; margin-left: auto; }
