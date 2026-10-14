@@ -1,7 +1,7 @@
-# monetiza-web (teste técnico temporário)
+# Monetiza AI (beta)
 
-Página de teste da Etapa 0: mostra um resultado de exemplo na tela, mantém o resultado ao recarregar e gera o PDF de 4 páginas no próprio aparelho.
+Site estático do Monetiza AI, do Instituto Mirra: 6 perguntas e 10 ideias de produtos digitais com esteira recomendada, mostradas na tela.
 
-- Usa **somente conteúdo genérico** gerado no código. Não chama IA nem servidor.
-- Não contém chaves, prompts nem dados de pessoas.
-- Não indexada por buscadores (`robots.txt` + `noindex`).
+- A geração acontece na função do servidor; este repositório não contém chaves, prompt nem dados de usuárias.
+- Não indexado por buscadores (`robots.txt` + `noindex`).
+- `teste-pdf/`: página de teste técnico da Etapa 0 (conteúdo genérico), mantida como registro.

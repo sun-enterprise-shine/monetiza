@@ -1,33 +1,27 @@
 <!doctype html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Teste técnico do PDF</title>
-<style>
-:root{--ink:#1a1a1a;--muted:#5c5c5c;--line:#d6d6d6;--card:#f3f3f3;--accent:#1f4f8f}
-@media (prefers-color-scheme: dark){:root{--ink:#eee;--muted:#aaa;--line:#444;--card:#262626;--accent:#7fb0ff}}
-body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:Canvas}
-main{max-width:720px;margin:0 auto;padding:16px}
-h1{font-size:1.3rem;margin:.2em 0}h3{margin:1.2em 0 .4em;font-size:1rem}
-.tag{display:inline-block;background:#fff3cd;color:#5c4400;padding:2px 8px;border-radius:6px;font-size:.85rem}
-button{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);margin:4px 4px 4px 0;min-height:44px}
-button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.card{background:var(--card);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:.95rem}
-.ok{color:#1d7a3a;font-weight:600}.box{border:1px solid var(--line);border-radius:10px;padding:12px;margin:12px 0}
-#aviso{background:#ffe8e8;color:#6b0000;border-radius:10px;padding:12px}
-textarea{width:100%;box-sizing:border-box;height:150px;font:12px/1.4 ui-monospace,monospace}
-small{color:var(--muted);word-break:break-all}
-</style></head>
-<body><main>
-<span class="tag">Teste técnico temporário · conteúdo genérico de exemplo</span>
-<h1>Monetiza: teste do PDF no celular</h1>
-<div class="box"><b>Navegador de app:</b> <span id="app"></span><br><small id="ua"></small></div>
-<div id="aviso" hidden><b>Você está no navegador interno de um app.</b> Teste os três botões abaixo. Se nenhum funcionar, toque em ⋯ e escolha "Abrir no navegador".</div>
-<div class="box"><b>1.</b> Gere um conteúdo genérico de exemplo:<br>
-<button id="b-base" class="primary">Gerar (textos médios)</button><button id="b-max">Gerar (textos no limite)</button></div>
-<div id="acoes" class="box" hidden><b>2.</b> Recarregue a página e veja se o resultado continua aqui.<br><b>3.</b> Teste o PDF:<br>
-<button id="b-down" class="primary">Baixar meu relatório</button><button id="b-tab">Abrir PDF em nova aba</button><button id="b-share">Compartilhar PDF</button></div>
-<div id="resultado"></div>
-<div class="box"><b>Registro do teste</b><textarea id="log" readonly></textarea>
-<button id="b-copy">Copiar registro</button><button id="b-clear">Limpar e recomeçar</button></div>
-</main><script type="module" src="./app.js"></script></body></html>
+<meta name="theme-color" content="#FAF7FB">
+<title>Monetiza AI · Instituto Mirra</title>
+<meta name="description" content="Responda 6 perguntas e receba 10 ideias de produtos digitais organizadas em uma esteira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./" id="brand">Monetiza <span>AI</span></a>
+  <span class="beta">versão beta</span>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer class="foot">
+  <p>Uma ferramenta do Instituto Mirra. Preços e potencial são hipóteses, não previsões de vendas.</p>
+</footer>
+<noscript><p class="wrap">Ative o JavaScript para usar o Monetiza AI.</p></noscript>
+<script type="module" src="app.js"></script>
+</body>
+</html>
