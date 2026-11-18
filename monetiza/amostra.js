@@ -1,56 +1,46 @@
-var H=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educa\xE7\xE3o e desenvolvimento","Beleza, moda e estilo","Culin\xE1ria e alimenta\xE7\xE3o","Casa, fam\xEDlia e rotina","Tecnologia e ferramentas digitais","Artes, criatividade e hobbies","Outra \xE1rea"],V=["Ainda n\xE3o sei","Mulheres","M\xE3es e fam\xEDlias","Empreendedores e aut\xF4nomos","Profissionais de uma \xE1rea","Estudantes e iniciantes","Pessoas com um hobby ou interesse espec\xEDfico","Outro p\xFAblico"],N=["Materiais prontos (PDFs, planilhas, templates)","Aulas gravadas ou minicursos","Aulas ao vivo e encontros em grupo","Atendimento individual e personalizado","N\xE3o sei, quero que a IA recomende"],$=[{key:"q1",title:"O que voc\xEA sabe fazer bem?",help:"Pode ser do trabalho, de um hobby ou da vida pessoal. Respostas curtas valem.",ex:"Exemplo: organizo as finan\xE7as da casa, fa\xE7o bolos decorados, ensino ingl\xEAs para crian\xE7as."},{key:"q2",title:"Sobre o que as pessoas costumam pedir sua ajuda?",help:"Pense nas perguntas que amigas, clientes ou familiares fazem para voc\xEA.",ex:"Exemplo: me pedem dicas para montar a rotina dos filhos e organizar a casa."},{key:"q3",title:"Qual dessas \xE1reas mais combina com voc\xEA?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:H,other:{when:"Outra \xE1rea",key:"q3_other",label:"Qual \xE1rea? (opcional)"}},{key:"q4",title:"Quem voc\xEA gostaria de ajudar?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:V,exclusive:"Ainda n\xE3o sei",other:{when:"Outro p\xFAblico",key:"q4_other",label:"Qual p\xFAblico? (opcional)"}},{key:"q5",title:"Voc\xEA j\xE1 ensinou ou ajudou algu\xE9m a conseguir um resultado?",help:"Conte em poucas palavras. Se ainda n\xE3o, tudo bem: escreva \u201Cainda n\xE3o\u201D.",ex:"Exemplo: ajudei uma vizinha a organizar as contas e sair do cheque especial."},{key:"q6",title:"Como voc\xEA prefere entregar seu conhecimento?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:N,exclusive:"N\xE3o sei, quero que a IA recomende"}],B=3,v=e=>Array.isArray(e)?e:typeof e=="string"&&e?[e]:[],_=(e,a)=>a==="q3"||a==="q4"||a==="q6"?v(e[a]).length>0:!!e[a]?.trim(),E=e=>{let a=$.findIndex(s=>!_(e,s.key));return a<0?5:a},t=e=>String(e??"").replace(/[&<>"']/g,a=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[a]),y=e=>"R$\xA0"+e.toLocaleString("pt-BR");function U(e){let a=e.price_min===e.price_max?y(e.price_min):`${y(e.price_min)} a ${y(e.price_max)}`;return e.price_period==="mes"?e.price_annual?`${a} por m\xEAs (plano anual)`:`${a} por m\xEAs`:e.tier==="abre_carteira"?a:`${a} ou em at\xE9 12x`}var z=[{tier:"abre_carteira",cls:"t1",name:"Abre Carteira",role:"Produtos de entrada: uma pequena vit\xF3ria r\xE1pida, pre\xE7o acess\xEDvel."},{tier:"base",cls:"t2",name:"Base",role:"O n\xFAcleo da sua oferta: resolve um problema maior, com mais profundidade."},{tier:"personalizacao",cls:"t3",name:"Personaliza\xE7\xE3o",role:"Acompanhamento pr\xF3ximo e sob medida, com valor mais alto."}];function x(e,a=""){return`<div class="stairs ${a}" aria-hidden="true">${e.map(([s,r],o)=>`<div class="step t${o+1}"><b>${t(s)}</b><small>${t(r)}</small></div>`).join("")}</div><div class="stairs-base"></div>`}function S(e,a,s="",r=!1){return`<article class="idea ${a}">
-    <div class="head"><h3>${t(e.name)}</h3><span class="price">${t(U(e))}</span></div>
-    <p class="sub">${t(e.subtitle)}</p>
-    ${s?`<span class="pick">${t(s)}</span>`:""}
+var N=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educa\xE7\xE3o e desenvolvimento","Beleza, moda e estilo","Culin\xE1ria e alimenta\xE7\xE3o","Casa, fam\xEDlia e rotina","Tecnologia e ferramentas digitais","Artes, criatividade e hobbies","Outra \xE1rea"],U=["Ainda n\xE3o sei","Mulheres","M\xE3es e fam\xEDlias","Empreendedores e aut\xF4nomos","Profissionais de uma \xE1rea","Estudantes e iniciantes","Pessoas com um hobby ou interesse espec\xEDfico","Outro p\xFAblico"],B=["Materiais prontos (PDFs, planilhas, templates)","Aulas gravadas ou minicursos","Aulas ao vivo e encontros em grupo","Atendimento individual e personalizado","N\xE3o sei, quero que a IA recomende"],x=[{key:"q1",title:"O que voc\xEA sabe fazer bem?",help:"Pode ser do trabalho, de um hobby ou da vida pessoal. Respostas curtas valem.",ex:"Exemplo: organizo as finan\xE7as da casa, fa\xE7o bolos decorados, ensino ingl\xEAs para crian\xE7as."},{key:"q2",title:"Sobre o que as pessoas costumam pedir sua ajuda?",help:"Pense nas perguntas que amigas, clientes ou familiares fazem para voc\xEA.",ex:"Exemplo: me pedem dicas para montar a rotina dos filhos e organizar a casa."},{key:"q3",title:"Qual dessas \xE1reas mais combina com voc\xEA?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:N,other:{when:"Outra \xE1rea",key:"q3_other",label:"Qual \xE1rea? (opcional)"}},{key:"q4",title:"Quem voc\xEA gostaria de ajudar?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:U,exclusive:"Ainda n\xE3o sei",other:{when:"Outro p\xFAblico",key:"q4_other",label:"Qual p\xFAblico? (opcional)"}},{key:"q5",title:"Voc\xEA j\xE1 ensinou ou ajudou algu\xE9m a conseguir um resultado?",help:"Conte em poucas palavras. Se ainda n\xE3o, tudo bem: escreva \u201Cainda n\xE3o\u201D.",ex:"Exemplo: ajudei uma vizinha a organizar as contas e sair do cheque especial."},{key:"q6",title:"Como voc\xEA prefere entregar seu conhecimento?",help:"Escolha at\xE9 3 op\xE7\xF5es.",options:B,exclusive:"N\xE3o sei, quero que a IA recomende"}],Q=3,v=e=>Array.isArray(e)?e:typeof e=="string"&&e?[e]:[],E=(e,a)=>a==="q3"||a==="q4"||a==="q6"?v(e[a]).length>0:!!e[a]?.trim(),z=e=>{let a=x.findIndex(s=>!E(e,s.key));return a<0?5:a},r=e=>String(e??"").replace(/[&<>"']/g,a=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[a]),y=e=>"R$\xA0"+e.toLocaleString("pt-BR");function D(e){let a=e.price_min===e.price_max?y(e.price_min):`${y(e.price_min)} a ${y(e.price_max)}`;return e.price_period==="mes"?e.price_annual?`${a} por m\xEAs (plano anual)`:`${a} por m\xEAs`:e.tier==="abre_carteira"?a:`${a} ou em at\xE9 12x`}var S=[{tier:"abre_carteira",cls:"t1",name:"Abre Carteira",role:"Produtos de entrada: uma pequena vit\xF3ria r\xE1pida, pre\xE7o acess\xEDvel."},{tier:"base",cls:"t2",name:"Base",role:"O n\xFAcleo da sua oferta: resolve um problema maior, com mais profundidade."},{tier:"personalizacao",cls:"t3",name:"Personaliza\xE7\xE3o",role:"Acompanhamento pr\xF3ximo e sob medida, com valor mais alto."}];function k(e,a=""){return`<div class="stairs ${a}" aria-hidden="true">${e.map(([s,t],o)=>`<div class="step t${o+1}"><b>${r(s)}</b><small>${r(t)}</small></div>`).join("")}</div><div class="stairs-base"></div>`}function L(e,a,s="",t=!1){return`<article class="idea ${a}">
+    <div class="head"><h3>${r(e.name)}</h3><span class="price">${r(D(e))}</span></div>
+    <p class="sub">${r(e.subtitle)}</p>
+    ${s?`<span class="pick">${r(s)}</span>`:""}
     <dl>
-      <div><dt>Para quem</dt><dd>${t(e.audience)}</dd></div>
-      <div><dt>Problema que resolve</dt><dd>${t(e.problem)}</dd></div>
-      <div><dt>Promessa</dt><dd>${t(e.promise)}</dd></div>
-      <div><dt>Formato</dt><dd>${t(e.format)}</dd></div>
-      <div><dt>Por que esta ideia</dt><dd>${t(e.rationale)}</dd></div>
+      <div><dt>Para quem</dt><dd>${r(e.audience)}</dd></div>
+      <div><dt>Problema que resolve</dt><dd>${r(e.problem)}</dd></div>
+      <div><dt>Promessa</dt><dd>${r(e.promise)}</dd></div>
+      <div><dt>Formato</dt><dd>${r(e.format)}</dd></div>
+      <div><dt>Por que esta ideia</dt><dd>${r(e.rationale)}</dd></div>
     </dl>
-    ${r?`<button class="copy" type="button" data-id="${t(e.id)}">Copiar ideia</button>`:""}
-  </article>`}function P(e,a,s,r){let o=$[a],b=o.options?`<fieldset class="opts"><legend class="sr">${t(o.title)}</legend>
-        ${o.options.map(i=>`<label class="opt"><input type="checkbox" name="opt" value="${t(i)}" ${v(s[o.key]).includes(i)?"checked":""}><span>${t(i)}</span></label>`).join("")}
+    ${t?`<button class="copy" type="button" data-id="${r(e.id)}">Copiar ideia</button>`:""}
+  </article>`}function P(e,a,s,t){let o=x[a],b=o.options?`<fieldset class="opts"><legend class="sr">${r(o.title)}</legend>
+        ${o.options.map(i=>`<label class="opt"><input type="checkbox" name="opt" value="${r(i)}" ${v(s[o.key]).includes(i)?"checked":""}><span>${r(i)}</span></label>`).join("")}
       </fieldset>
-      ${o.other?`<div class="other" id="other" ${v(s[o.key]).includes(o.other.when)?"":"hidden"}><label class="count" for="otherIn">${t(o.other.label)}</label>
-        <input type="text" id="otherIn" maxlength="100" value="${t(s[o.other.key])}"></div>`:""}`:`<div class="field"><textarea id="txt" maxlength="600" aria-label="${t(o.title)}" aria-describedby="help ex">${t(s[o.key])}</textarea>
+      ${o.other?`<div class="other" id="other" ${v(s[o.key]).includes(o.other.when)?"":"hidden"}><label class="count" for="otherIn">${r(o.other.label)}</label>
+        <input type="text" id="otherIn" maxlength="100" value="${r(s[o.other.key])}"></div>`:""}`:`<div class="field"><textarea id="txt" maxlength="600" aria-label="${r(o.title)}" aria-describedby="help ex">${r(s[o.key])}</textarea>
         <div class="counter"><span id="cnt">${(s[o.key]??"").length}</span>/600</div>
         <button class="link quick" id="dunno" type="button">N\xE3o sei responder</button></div>`;e.innerHTML=`
   <section class="q">
-    <div class="progress" aria-hidden="true">${$.map((i,p)=>`<i class="${p<=a?"on":""}"></i>`).join("")}</div>
+    <div class="progress" aria-hidden="true">${x.map((i,p)=>`<i class="${p<=a?"on":""}"></i>`).join("")}</div>
     <p class="count">Pergunta ${a+1} de 6</p>
-    <h1>${t(o.title)}</h1>
-    <p class="help" id="help">${t(o.help)}</p>
-    ${o.ex?`<p class="ex" id="ex">${t(o.ex)}</p>`:""}
+    <h1>${r(o.title)}</h1>
+    <p class="help" id="help">${r(o.help)}</p>
+    ${o.ex?`<p class="ex" id="ex">${r(o.ex)}</p>`:""}
     ${b}
     <p class="err" id="err" role="alert" hidden></p>
     <div class="nav">
       <button class="btn ghost" id="back" type="button">Voltar</button>
-      <button class="btn" id="next" type="button">${a===5?t(r.lastLabel):"Continuar"}</button>
+      <button class="btn" id="next" type="button">${a===5?r(t.lastLabel):"Continuar"}</button>
     </div>
-  </section>`;let m=e.querySelector("#txt");m?.addEventListener("input",()=>{s[o.key]=m.value,e.querySelector("#cnt").textContent=String(m.value.length),r.save()});let d=[...e.querySelectorAll('input[name="opt"]')],h=()=>{let i=d.filter(u=>u.checked).map(u=>u.value);s[o.key]=i,r.save(),d.forEach(u=>{u.disabled=!u.checked&&i.length>=B,u.closest(".opt").classList.toggle("off",u.disabled)});let p=e.querySelector("#other");p&&o.other&&(p.hidden=!i.includes(o.other.when))};d.forEach(i=>i.addEventListener("change",()=>{i.checked&&o.exclusive&&(i.value===o.exclusive?d.forEach(p=>{p!==i&&(p.checked=!1)}):d.forEach(p=>{p.value===o.exclusive&&(p.checked=!1)})),h()})),d.length&&h();let g=e.querySelector("#otherIn");g?.addEventListener("input",()=>{s[o.other.key]=g.value,r.save()}),e.querySelector("#back").addEventListener("click",r.back);let w=()=>{if(!_(s,o.key)){let i=e.querySelector("#err");i.textContent=o.options?"Escolha pelo menos uma op\xE7\xE3o para continuar.":"Escreva uma resposta, mesmo curta, ou toque em \u201CN\xE3o sei responder\u201D.",i.hidden=!1;return}r.next()};e.querySelector("#dunno")?.addEventListener("click",()=>{m.value="N\xE3o sei",s[o.key]="N\xE3o sei",r.save(),w()}),e.querySelector("#next").addEventListener("click",w),m?.focus({preventScroll:!0})}function A(e,a,s=!1){let r=s?[0,1,2,3]:[0,4,9,15];e.innerHTML=`
+  </section>`;let m=e.querySelector("#txt");m?.addEventListener("input",()=>{s[o.key]=m.value,e.querySelector("#cnt").textContent=String(m.value.length),t.save()});let d=[...e.querySelectorAll('input[name="opt"]')],h=()=>{let i=d.filter(u=>u.checked).map(u=>u.value);s[o.key]=i,t.save(),d.forEach(u=>{u.disabled=!u.checked&&i.length>=Q,u.closest(".opt").classList.toggle("off",u.disabled)});let p=e.querySelector("#other");p&&o.other&&(p.hidden=!i.includes(o.other.when))};d.forEach(i=>i.addEventListener("change",()=>{i.checked&&o.exclusive&&(i.value===o.exclusive?d.forEach(p=>{p!==i&&(p.checked=!1)}):d.forEach(p=>{p.value===o.exclusive&&(p.checked=!1)})),h()})),d.length&&h();let g=e.querySelector("#otherIn");g?.addEventListener("input",()=>{s[o.other.key]=g.value,t.save()}),e.querySelector("#back").addEventListener("click",t.back);let _=()=>{if(!E(s,o.key)){let i=e.querySelector("#err");i.textContent=o.options?"Escolha pelo menos uma op\xE7\xE3o para continuar.":"Escreva uma resposta, mesmo curta, ou toque em \u201CN\xE3o sei responder\u201D.",i.hidden=!1;return}t.next()};e.querySelector("#dunno")?.addEventListener("click",()=>{m.value="N\xE3o sei",s[o.key]="N\xE3o sei",t.save(),_()}),e.querySelector("#next").addEventListener("click",_),m?.focus({preventScroll:!0})}function A(e,a,s=!1){let t=s?[0,1,2,3]:[0,4,9,15];e.innerHTML=`
   <section class="wait" aria-live="polite">
     <h1>Criando suas <em>ideias</em></h1>
     <p class="sub" id="sub">${s?"S\xF3 um instante.":"Isso leva de 10 a 40 segundos. N\xE3o feche esta p\xE1gina."}</p>
-    ${x([["Abre Carteira",""],["Base",""],["Personaliza\xE7\xE3o",""]])}
+    ${k([["Abre Carteira",""],["Base",""],["Personaliza\xE7\xE3o",""]])}
     <ul>
-      <li data-at="${r[0]}">Lendo suas respostas</li>
-      <li data-at="${r[1]}">Criando as ideias</li>
-      <li data-at="${r[2]}">Montando sua esteira</li>
-      <li data-at="${r[3]}">Conferindo a qualidade</li>
+      <li data-at="${t[0]}">Lendo suas respostas</li>
+      <li data-at="${t[1]}">Criando as ideias</li>
+      <li data-at="${t[2]}">Montando sua esteira</li>
+      <li data-at="${t[3]}">Conferindo a qualidade</li>
     </ul>
-  </section>`;let o=Date.now(),b=[...e.querySelectorAll(".stairs .step")],m=()=>{if(!a())return;let d=(Date.now()-o)/1e3;e.querySelectorAll(".wait li").forEach(h=>h.classList.toggle("done",d>=Number(h.dataset.at)+(s?.5:3))),b.forEach((h,g)=>h.classList.toggle("lit",d>=r[g+1])),d>45&&(e.querySelector("#sub").textContent="Est\xE1 levando um pouco mais que o normal. Continue nesta p\xE1gina."),setTimeout(m,s?300:1e3)};m()}function L(e){let a={q1:e.q1.trim(),q2:e.q2.trim(),q3:v(e.q3),q4:v(e.q4),q5:e.q5.trim(),q6:v(e.q6)};return v(e.q3).includes("Outra \xE1rea")&&e.q3_other?.trim()&&(a.q3_other=e.q3_other.trim()),v(e.q4).includes("Outro p\xFAblico")&&e.q4_other?.trim()&&(a.q4_other=e.q4_other.trim()),a}var T='<p class="support">Suporte: <a href="https://wa.me/5585999107083" target="_blank" rel="noopener">WhatsApp (85) 9 9910-7083</a> \xB7 <a href="mailto:contato@carolbergantini.com">contato@carolbergantini.com</a></p>';var Q="https://dyepykxuygmmilchyybr.supabase.co/functions/v1/monetiza-app",f="/monetiza/#comprar",C="monetiza-amostra-v1",n=(()=>{try{let e=JSON.parse(sessionStorage.getItem(C)??"");if(e?.view)return e}catch{}return{view:{name:"home"},answers:{}}})(),O=()=>{try{sessionStorage.setItem(C,JSON.stringify(n))}catch{}},c=document.getElementById("app");function l(e){n.view=e,O(),j(),window.scrollTo(0,0),c.focus({preventScroll:!0})}var R=(e="Quero o Monetiza completo por R$ 37")=>`<a class="btn block buy" href="${t(f)}">${t(e)}</a>`,D=0,M=(e="logo")=>{let a=`mzl${++D}`;return`<svg class="${e}" viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="${a}"><rect width="64" height="64" fill="#fff"/><path d="M26 38 A11 11 0 1 1 38 38 L37 42 H27 Z" fill="#000"/><path d="M28 47 H36" stroke="#000" stroke-width="3" stroke-linecap="round"/></mask></defs><circle cx="32" cy="32" r="28" fill="#9A6B12" mask="url(#${a})"/></svg>`},k=(e,a,s,r,o,b)=>`<div class="mini ${e}"><div class="h"><b>${a} <em>${s}</em></b><span class="p">${r}</span></div><small>${o}</small><span class="t">${b}</span></div>`;function K(){c.innerHTML=`
-  <div class="lp">
-  <section class="lp-hero"><div class="lp-in">
-    <div>
-      <span class="pill-tag">Para mentoras, terapeutas e prestadoras de servi\xE7o</span>
-      <h1>Transforme o que voc\xEA sabe em <em>produtos</em> que vendem</h1>
-      <p class="lead">Responda 6 perguntas e receba, em minutos, 10 ideias de infoprodutos com pre\xE7o, promessa e p\xFAblico, organizadas em uma esteira: do produto de entrada \xE0 mentoria.</p>
-      <div class="lp-ctas"><a class="btn buy" href="${t(f)}">Quero o Monetiza por R$ 37</a><button class="btn soft" id="try">Testar gr\xE1tis</button></div>
-      <p class="lp-meta"><span>Pagamento \xFAnico</span><span>Acesso por 1 ano</span><span>Garantia de 7 dias</span></p>
-    </div>
-    <div class="mz-video" role="img" aria-label="Anima\xE7\xE3o: a pessoa responde o que sabe fazer, o Monetiza cria as ideias e mostra 3 produtos da esteira com pre\xE7os">
+  </section>`;let o=Date.now(),b=[...e.querySelectorAll(".stairs .step")],m=()=>{if(!a())return;let d=(Date.now()-o)/1e3;e.querySelectorAll(".wait li").forEach(h=>h.classList.toggle("done",d>=Number(h.dataset.at)+(s?.5:3))),b.forEach((h,g)=>h.classList.toggle("lit",d>=t[g+1])),d>45&&(e.querySelector("#sub").textContent="Est\xE1 levando um pouco mais que o normal. Continue nesta p\xE1gina."),setTimeout(m,s?300:1e3)};m()}function T(e){let a={q1:e.q1.trim(),q2:e.q2.trim(),q3:v(e.q3),q4:v(e.q4),q5:e.q5.trim(),q6:v(e.q6)};return v(e.q3).includes("Outra \xE1rea")&&e.q3_other?.trim()&&(a.q3_other=e.q3_other.trim()),v(e.q4).includes("Outro p\xFAblico")&&e.q4_other?.trim()&&(a.q4_other=e.q4_other.trim()),a}var M='<p class="support">Suporte: <a href="https://wa.me/5585999107083" target="_blank" rel="noopener">WhatsApp (85) 9 9910-7083</a> \xB7 <a href="mailto:contato@carolbergantini.com">contato@carolbergantini.com</a></p>';var K=(e="logo",a="mzlg")=>`<svg class="${e}" viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="${a}"><rect width="64" height="64" fill="#fff"/><path d="M26 38 A11 11 0 1 1 38 38 L37 42 H27 Z" fill="#000"/><path d="M28 47 H36" stroke="#000" stroke-width="3" stroke-linecap="round"/></mask></defs><circle cx="32" cy="32" r="28" fill="#9A6B12" mask="url(#${a})"/></svg>`,F=0,w=(e="logo")=>K(e,`mzl${++F}`),$=(e,a,s,t,o,b)=>`<div class="mini ${e}"><div class="h"><b>${a} <em>${s}</em></b><span class="p">${t}</span></div><small>${o}</small><span class="t">${b}</span></div>`;function C(){return`<div class="mz-video" role="img" aria-label="Anima\xE7\xE3o: a pessoa responde o que sabe fazer, o Monetiza cria as ideias e mostra 3 produtos da esteira com pre\xE7os">
       <div class="mz-top"><span>Veja como funciona</span><span class="dots"><i></i><i></i><i></i></span></div>
       <div class="mz-scene mz-s1 mz-q" aria-hidden="true">
         <small class="count">Pergunta 1 de 6</small>
@@ -58,14 +48,24 @@ var H=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
         <div class="mz-field"><span class="mz-type">Organizo finan\xE7as de pequenos neg\xF3cios</span></div>
         <span class="mz-fake">Continuar</span>
       </div>
-      <div class="mz-scene mz-s2" aria-hidden="true">${M()}<b>Criando suas <em>ideias</em></b><div class="mz-bars"><i></i><i></i><i></i></div></div>
+      <div class="mz-scene mz-s2" aria-hidden="true">${w()}<b>Criando suas <em>ideias</em></b><div class="mz-bars"><i></i><i></i><i></i></div></div>
       <div class="mz-scene mz-s3" aria-hidden="true">
         <small class="count">Suas 10 ideias \xB7 esteira recomendada</small>
-        ${k("t1","Contas Separadas","na Pr\xE1tica","R$ 27 a 47","Planilha para empreendedoras que querem separar as contas sem entender de finan\xE7as.","Abre Carteira")}
-        ${k("t2","Caixa no Azul","em 4 Semanas","R$ 397 a 997","Programa em grupo para organizar o caixa em 15 minutos por semana.","Base")}
-        ${k("t3","Mentoria","Caixa Leve","R$ 1.500 a 3.000","Acompanhamento individual por 3 meses, com encontros quinzenais.","Personaliza\xE7\xE3o")}
+        ${$("t1","Contas Separadas","na Pr\xE1tica","R$ 27 a 47","Planilha para empreendedoras que querem separar as contas sem entender de finan\xE7as.","Abre Carteira")}
+        ${$("t2","Caixa no Azul","em 4 Semanas","R$ 397 a 997","Programa em grupo para organizar o caixa em 15 minutos por semana.","Base")}
+        ${$("t3","Mentoria","Caixa Leve","R$ 1.500 a 3.000","Acompanhamento individual por 3 meses, com encontros quinzenais.","Personaliza\xE7\xE3o")}
       </div>
+    </div>`}function O(e){!e||matchMedia("(prefers-reduced-motion: reduce)").matches||!matchMedia("(hover: hover)").matches||(e.style.transition="transform .25s ease",e.addEventListener("pointermove",a=>{let s=e.getBoundingClientRect(),t=(a.clientX-s.left)/s.width-.5,o=(a.clientY-s.top)/s.height-.5;e.style.transform=`perspective(900px) rotateY(${t*8}deg) rotateX(${-o*8}deg) translateY(-4px)`}),e.addEventListener("pointerleave",()=>{e.style.transform=""}))}var G="https://dyepykxuygmmilchyybr.supabase.co/functions/v1/monetiza-app",f="/monetiza/#comprar",R="monetiza-amostra-v1",l=(()=>{try{let e=JSON.parse(sessionStorage.getItem(R)??"");if(e?.view)return e}catch{}return{view:{name:"home"},answers:{}}})(),I=()=>{try{sessionStorage.setItem(R,JSON.stringify(l))}catch{}},n=document.getElementById("app");function c(e){l.view=e,I(),H(),window.scrollTo(0,0),n.focus({preventScroll:!0})}var j=(e="Quero o Monetiza completo por R$ 37")=>`<a class="btn block buy" href="${r(f)}">${r(e)}</a>`;function Y(){n.innerHTML=`
+  <div class="lp">
+  <section class="lp-hero"><div class="lp-in">
+    <div>
+      <span class="pill-tag">Para mentoras, terapeutas e prestadoras de servi\xE7o</span>
+      <h1>Transforme o que voc\xEA sabe em <em>produtos</em> que vendem</h1>
+      <p class="lead">Responda 6 perguntas e receba, em minutos, 10 ideias de infoprodutos com pre\xE7o, promessa e p\xFAblico, organizadas em uma esteira: do produto de entrada \xE0 mentoria.</p>
+      <div class="lp-ctas"><a class="btn buy" href="${r(f)}">Quero o Monetiza por R$ 37</a><button class="btn soft" id="try">Testar gr\xE1tis</button></div>
+      <p class="lp-meta"><span>Pagamento \xFAnico</span><span>Acesso por 1 ano</span><span>Garantia de 7 dias</span></p>
     </div>
+    ${C()}
   </div></section>
 
   <section class="lp-sec alt"><div class="lp-in">
@@ -126,7 +126,7 @@ var H=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
         <li>Textos ajustados \xE0s suas palavras</li>
         <li>At\xE9 3 gera\xE7\xF5es por dia e ideias salvas</li>
       </ul>
-      <a class="btn buy" href="${t(f)}">Quero o Monetiza agora</a>
+      <a class="btn buy" href="${r(f)}">Quero o Monetiza agora</a>
       <p class="guarantee"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Garantia de 7 dias: n\xE3o gostou, devolvemos seu dinheiro.</p>
       <p class="pay">Pagamento seguro pela Kiwify \xB7 Pix ou cart\xE3o</p>
     </div>
@@ -142,19 +142,19 @@ var H=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
   </div></section>
 
   <section class="lp-sec"><div class="lp-in lp-final reveal">
-    ${M()}
+    ${w()}
     <h2>O seu pr\xF3ximo produto j\xE1 est\xE1 no que voc\xEA <em>sabe</em></h2>
-    <a class="btn buy" href="${t(f)}">Quero o Monetiza por R$ 37</a>
-    ${T}
+    <a class="btn buy" href="${r(f)}">Quero o Monetiza por R$ 37</a>
+    ${M}
   </div></section>
-  </div>`;for(let e of["#try","#try2"])c.querySelector(e).addEventListener("click",()=>l({name:"q",i:E(n.answers)}));F()}function F(){let e=[...c.querySelectorAll(".reveal")];if(!("IntersectionObserver"in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){e.forEach(s=>s.classList.add("on"));return}let a=new IntersectionObserver(s=>s.forEach(r=>{r.isIntersecting&&(r.target.classList.add("on"),a.unobserve(r.target))}),{rootMargin:"0px 0px -8% 0px"});e.forEach((s,r)=>{s.style.transitionDelay=`${r%3*80}ms`,a.observe(s)})}function G(){let e=n.report,a=z.map((s,r)=>e.ideas[r]?`<section><div class="tier-h"><h2>${s.name}</h2><span class="n">1 de ${[5,3,2][r]}</span></div>
-    <p class="intro">${s.role}</p><div class="ideas">${S(e.ideas[r],s.cls)}</div></section>`:"").join("");c.innerHTML=`
+  </div>`;for(let e of["#try","#try2"])n.querySelector(e).addEventListener("click",()=>c({name:"q",i:z(l.answers)}));J(),O(n.querySelector(".mz-video"))}function J(){let e=[...n.querySelectorAll(".reveal")];if(!("IntersectionObserver"in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){e.forEach(s=>s.classList.add("on"));return}let a=new IntersectionObserver(s=>s.forEach(t=>{t.isIntersecting&&(t.target.classList.add("on"),a.unobserve(t.target))}),{rootMargin:"0px 0px -8% 0px"});e.forEach((s,t)=>{s.style.transitionDelay=`${t%3*80}ms`,a.observe(s)})}function X(){let e=l.report,a=S.map((s,t)=>e.ideas[t]?`<section><div class="tier-h"><h2>${s.name}</h2><span class="n">1 de ${[5,3,2][t]}</span></div>
+    <p class="intro">${s.role}</p><div class="ideas">${L(e.ideas[t],s.cls)}</div></section>`:"").join("");n.innerHTML=`
   <article class="res">
     <h1>Sua amostra: 3 <em>ideias</em></h1>
-    <p class="summary">${t(e.profile.summary)}</p>
+    <p class="summary">${r(e.profile.summary)}</p>
     ${a}
     <section class="locked" aria-label="Conte\xFAdo da vers\xE3o completa">
-      <div class="blur" aria-hidden="true">${x([["Abre Carteira","\u2022\u2022\u2022\u2022\u2022"],["Base","\u2022\u2022\u2022\u2022\u2022"],["Personaliza\xE7\xE3o","\u2022\u2022\u2022\u2022\u2022"]])}</div>
+      <div class="blur" aria-hidden="true">${k([["Abre Carteira","\u2022\u2022\u2022\u2022\u2022"],["Base","\u2022\u2022\u2022\u2022\u2022"],["Personaliza\xE7\xE3o","\u2022\u2022\u2022\u2022\u2022"]])}</div>
       <h2>Desbloqueie a vers\xE3o <em>completa</em></h2>
       <ul class="checks">
         <li>Mais 7 ideias (10 no total)</li>
@@ -162,12 +162,12 @@ var H=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
         <li>O primeiro produto detalhado e como validar</li>
         <li>Textos ajustados \xE0s suas palavras e ideias salvas na sua conta</li>
       </ul>
-      ${R("Desbloquear as 10 ideias e a sua esteira por R$ 37")}
+      ${j("Desbloquear as 10 ideias e a sua esteira por R$ 37")}
       <p class="meta">Pagamento \xFAnico, acesso por 1 ano, garantia de 7 dias.</p>
     </section>
     <div class="again"><p>Os pre\xE7os e o potencial s\xE3o hip\xF3teses para voc\xEA testar com seu p\xFAblico, n\xE3o previs\xF5es de vendas.</p>
       <button class="btn ghost" id="new">Fazer outra amostra</button></div>
-  </article>`,c.querySelector("#new").addEventListener("click",()=>{n={view:{name:"home"},answers:{}},l({name:"q",i:0})})}function J(e){c.innerHTML=`<section class="problem" role="alert"><h1>${e.code==="limite_amostra"?"Limite de hoje atingido":"N\xE3o deu certo"}</h1>
-    <p>${t(e.message)}</p>
-    <div class="actions">${e.code==="limite_amostra"?R():'<button class="btn" id="retry">Tentar de novo</button>'}
-    <button class="btn ghost" id="home">Voltar ao in\xEDcio</button></div></section>`,c.querySelector("#retry")?.addEventListener("click",I),c.querySelector("#home").addEventListener("click",()=>l({name:"home"}))}var q=!1;async function I(){q=!0,l({name:"wait"});let e=Date.now(),a="internal",s="Algo deu errado. Tente novamente em alguns minutos.";try{let r=await fetch(Q,{method:"POST",body:JSON.stringify({acao:"amostra",answers:L(n.answers)}),headers:{"content-type":"application/json","x-request-id":crypto.randomUUID()}}),o=await r.json().catch(()=>null);if(await new Promise(b=>setTimeout(b,Math.max(0,2500-(Date.now()-e)))),r.ok&&o?.status==="ok"){n.report=o.report,q=!1,l({name:"result"});return}o?.code&&(a=o.code,s=o.message??s)}catch{a="network",s="N\xE3o conseguimos falar com o servidor. Confira sua internet e tente de novo."}q=!1,l({name:"error",code:a,message:s})}function j(){let e=n.view;e.name==="home"?K():e.name==="q"?P(c,e.i,n.answers,{save:O,lastLabel:"Ver minha amostra",back:()=>l(e.i===0?{name:"home"}:{name:"q",i:e.i-1}),next:()=>e.i<5?l({name:"q",i:e.i+1}):I()}):e.name==="wait"?q?A(c,()=>n.view.name==="wait",!0):l({name:"q",i:5}):e.name==="error"?J(e):e.name==="result"&&n.report?G():l({name:"home"})}document.getElementById("brand").addEventListener("click",e=>{e.preventDefault(),l({name:"home"})});j();
+  </article>`,n.querySelector("#new").addEventListener("click",()=>{l={view:{name:"home"},answers:{}},c({name:"q",i:0})})}function W(e){n.innerHTML=`<section class="problem" role="alert"><h1>${e.code==="limite_amostra"?"Limite de hoje atingido":"N\xE3o deu certo"}</h1>
+    <p>${r(e.message)}</p>
+    <div class="actions">${e.code==="limite_amostra"?j():'<button class="btn" id="retry">Tentar de novo</button>'}
+    <button class="btn ghost" id="home">Voltar ao in\xEDcio</button></div></section>`,n.querySelector("#retry")?.addEventListener("click",V),n.querySelector("#home").addEventListener("click",()=>c({name:"home"}))}var q=!1;async function V(){q=!0,c({name:"wait"});let e=Date.now(),a="internal",s="Algo deu errado. Tente novamente em alguns minutos.";try{let t=await fetch(G,{method:"POST",body:JSON.stringify({acao:"amostra",answers:T(l.answers)}),headers:{"content-type":"application/json","x-request-id":crypto.randomUUID()}}),o=await t.json().catch(()=>null);if(await new Promise(b=>setTimeout(b,Math.max(0,2500-(Date.now()-e)))),t.ok&&o?.status==="ok"){l.report=o.report,q=!1,c({name:"result"});return}o?.code&&(a=o.code,s=o.message??s)}catch{a="network",s="N\xE3o conseguimos falar com o servidor. Confira sua internet e tente de novo."}q=!1,c({name:"error",code:a,message:s})}function H(){let e=l.view;e.name==="home"?Y():e.name==="q"?P(n,e.i,l.answers,{save:I,lastLabel:"Ver minha amostra",back:()=>c(e.i===0?{name:"home"}:{name:"q",i:e.i-1}),next:()=>e.i<5?c({name:"q",i:e.i+1}):V()}):e.name==="wait"?q?A(n,()=>l.view.name==="wait",!0):c({name:"q",i:5}):e.name==="error"?W(e):e.name==="result"&&l.report?X():c({name:"home"})}document.getElementById("brand").addEventListener("click",e=>{e.preventDefault(),c({name:"home"})});H();
