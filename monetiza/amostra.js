@@ -59,7 +59,7 @@ var N=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
   <div class="lp">
   <section class="lp-hero"><div class="lp-in">
     <div>
-      <span class="pill-tag">Para quem quer vender o que sabe no digital</span>
+      <span class="pill-tag">\u201CEu sei muita coisa, mas n\xE3o sei o que vender.\u201D</span>
       <h1>Transforme o que voc\xEA sabe em <em>produtos</em> que vendem</h1>
       <p class="lead">Responda 6 perguntas e receba, em minutos, 10 ideias de infoprodutos com pre\xE7o, promessa e p\xFAblico, organizadas em uma esteira: do produto de entrada \xE0 mentoria.</p>
       <div class="lp-ctas"><a class="btn buy" href="${r(f)}">Quero o Monetiza por R$ 37</a><button class="btn soft" id="try">Testar gr\xE1tis</button></div>
