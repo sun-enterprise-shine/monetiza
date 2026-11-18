@@ -4,3 +4,5 @@
   X-Frame-Options: DENY
 /appmonetiza/*
   Cache-Control: no-cache
+/monetiza/*
+  Cache-Control: no-cache
