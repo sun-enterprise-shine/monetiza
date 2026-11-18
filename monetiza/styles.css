@@ -13,7 +13,7 @@
   --gold-soft: #F7EEDB;
   --danger: #A1322B;
   --font: "Familjen Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --r-sm: 8px; --r-md: 14px;
+  --r-sm: 14px; --r-md: 24px; --serif: "Instrument Serif", Georgia, serif;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -27,15 +27,16 @@ button, input, textarea { font: inherit; color: inherit; }
 
 /* topo e rodapé */
 .top { display: flex; align-items: center; justify-content: space-between; width: min(100% - 32px, 720px); margin: 0 auto; padding: 18px 0 8px; }
-.brand { font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
-.brand span { color: var(--plum); }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 21px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+.brand .logo { width: 30px; height: 30px; flex: none; }
+.brand span { color: var(--plum); font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.08em; letter-spacing: 0; }
 .beta { font-size: 13px; color: var(--plum); background: var(--plum-soft); padding: 3px 10px; border-radius: 99px; }
 .foot { width: min(100% - 32px, 720px); margin: 56px auto 32px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 .foot p + p { margin-top: 8px; }
 main { outline: none; padding-bottom: 8px; }
 
 /* botões */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border: 0; border-radius: var(--r-sm);
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border: 0; border-radius: 999px;
   background: var(--jade); color: #fff; font-weight: 600; font-size: 17px; cursor: pointer; text-decoration: none; }
 .btn:hover { background: #0A6656; }
 .btn[disabled] { background: #9FBDB6; cursor: not-allowed; }
@@ -232,3 +233,12 @@ textarea:focus, input[type=text]:focus { border-color: var(--jade); outline: non
 .acts { display: grid; gap: 4px; }
 .ev { margin: 10px 0 0; padding-left: 18px; font-size: 14px; }
 @media (max-width: 640px) { .admin .grid { grid-template-columns: 1fr; } }
+
+/* ---------- identidade: toque feminino (itálico serifado nos títulos, formas arredondadas) ---------- */
+h1 em, h2 em, .price .value em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--plum); letter-spacing: 0; }
+.hero h1 em { font-size: 1.06em; }
+.idea { border-radius: var(--r-md); }
+.step { border-radius: 22px 22px 6px 6px; }
+.stairs-base { opacity: .15; }
+.opt { border-radius: 16px; }
+.progress i { border-radius: 99px; }

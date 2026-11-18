@@ -30,7 +30,7 @@ var M=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
     </div>
   </section>`;let u=e.querySelector("#txt");u?.addEventListener("input",()=>{t[a.key]=u.value,e.querySelector("#cnt").textContent=String(u.value.length),r.save()});let c=[...e.querySelectorAll('input[name="opt"]')],v=()=>{let i=c.filter(p=>p.checked).map(p=>p.value);t[a.key]=i,r.save(),c.forEach(p=>{p.disabled=!p.checked&&i.length>=N,p.closest(".opt").classList.toggle("off",p.disabled)});let d=e.querySelector("#other");d&&a.other&&(d.hidden=!i.includes(a.other.when))};c.forEach(i=>i.addEventListener("change",()=>{i.checked&&a.exclusive&&(i.value===a.exclusive?c.forEach(d=>{d!==i&&(d.checked=!1)}):c.forEach(d=>{d.value===a.exclusive&&(d.checked=!1)})),v()})),c.length&&v();let g=e.querySelector("#otherIn");g?.addEventListener("input",()=>{t[a.other.key]=g.value,r.save()}),e.querySelector("#back").addEventListener("click",r.back);let $=()=>{if(!w(t,a.key)){let i=e.querySelector("#err");i.textContent=a.options?"Escolha pelo menos uma op\xE7\xE3o para continuar.":"Escreva uma resposta, mesmo curta, ou toque em \u201CN\xE3o sei responder\u201D.",i.hidden=!1;return}r.next()};e.querySelector("#dunno")?.addEventListener("click",()=>{u.value="N\xE3o sei",t[a.key]="N\xE3o sei",r.save(),$()}),e.querySelector("#next").addEventListener("click",$),u?.focus({preventScroll:!0})}function P(e,s,t=!1){let r=t?[0,1,2,3]:[0,4,9,15];e.innerHTML=`
   <section class="wait" aria-live="polite">
-    <h1>Criando suas ideias</h1>
+    <h1>Criando suas <em>ideias</em></h1>
     <p class="sub" id="sub">${t?"S\xF3 um instante.":"Isso leva de 10 a 40 segundos. N\xE3o feche esta p\xE1gina."}</p>
     ${q([["Abre Carteira",""],["Base",""],["Personaliza\xE7\xE3o",""]])}
     <ul>
@@ -41,7 +41,7 @@ var M=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
     </ul>
   </section>`;let a=Date.now(),b=[...e.querySelectorAll(".stairs .step")],u=()=>{if(!s())return;let c=(Date.now()-a)/1e3;e.querySelectorAll(".wait li").forEach(v=>v.classList.toggle("done",c>=Number(v.dataset.at)+(t?.5:3))),b.forEach((v,g)=>v.classList.toggle("lit",c>=r[g+1])),c>45&&(e.querySelector("#sub").textContent="Est\xE1 levando um pouco mais que o normal. Continue nesta p\xE1gina."),setTimeout(u,t?300:1e3)};u()}function A(e){let s={q1:e.q1.trim(),q2:e.q2.trim(),q3:h(e.q3),q4:h(e.q4),q5:e.q5.trim(),q6:h(e.q6)};return h(e.q3).includes("Outra \xE1rea")&&e.q3_other?.trim()&&(s.q3_other=e.q3_other.trim()),h(e.q4).includes("Outro p\xFAblico")&&e.q4_other?.trim()&&(s.q4_other=e.q4_other.trim()),s}var T='<p class="support">Suporte: <a href="https://wa.me/5585999107083" target="_blank" rel="noopener">WhatsApp (85) 9 9910-7083</a> \xB7 <a href="mailto:contato@carolbergantini.com">contato@carolbergantini.com</a></p>';var V="https://dyepykxuygmmilchyybr.supabase.co/functions/v1/monetiza-app",U="/monetiza/#comprar",C="monetiza-amostra-v1",n=(()=>{try{let e=JSON.parse(sessionStorage.getItem(C)??"");if(e?.view)return e}catch{}return{view:{name:"home"},answers:{}}})(),I=()=>{try{sessionStorage.setItem(C,JSON.stringify(n))}catch{}},m=document.getElementById("app");function l(e){n.view=e,I(),z(),window.scrollTo(0,0),m.focus({preventScroll:!0})}var y=(e="Quero o Monetiza completo por R$ 37")=>`<a class="btn block buy" href="${o(U)}">${o(e)}</a>`;function B(){m.innerHTML=`
   <section class="hero">
-    <h1>Descubra o que voc\xEA pode vender com o que j\xE1 sabe</h1>
+    <h1>Descubra o que voc\xEA pode <em>vender</em> com o que j\xE1 sabe</h1>
     <p class="lead">Responda 6 perguntas e receba 10 ideias de produtos digitais, organizadas em uma esteira: do produto de entrada ao acompanhamento de valor alto.</p>
     ${q([["Abre Carteira","5 ideias de entrada"],["Base","3 ideias de meio de funil"],["Personaliza\xE7\xE3o","2 ideias de valor alto"]])}
     <div class="cta">${y()}<button class="btn ghost block" id="try">Testar gr\xE1tis com 3 ideias</button></div>
@@ -92,12 +92,12 @@ var M=["Neg\xF3cios, vendas e marketing","Finan\xE7as e organiza\xE7\xE3o","Educ
   ${T}`,m.querySelector("#try").addEventListener("click",()=>l({name:"q",i:k(n.answers)}))}function D(){let e=n.report,s=E.map((t,r)=>e.ideas[r]?`<section><div class="tier-h"><h2>${t.name}</h2><span class="n">1 de ${[5,3,2][r]}</span></div>
     <p class="intro">${t.role}</p><div class="ideas">${S(e.ideas[r],t.cls)}</div></section>`:"").join("");m.innerHTML=`
   <article class="res">
-    <h1>Sua amostra: 3 ideias</h1>
+    <h1>Sua amostra: 3 <em>ideias</em></h1>
     <p class="summary">${o(e.profile.summary)}</p>
     ${s}
     <section class="locked" aria-label="Conte\xFAdo da vers\xE3o completa">
       <div class="blur" aria-hidden="true">${q([["Abre Carteira","\u2022\u2022\u2022\u2022\u2022"],["Base","\u2022\u2022\u2022\u2022\u2022"],["Personaliza\xE7\xE3o","\u2022\u2022\u2022\u2022\u2022"]])}</div>
-      <h2>Desbloqueie a vers\xE3o completa</h2>
+      <h2>Desbloqueie a vers\xE3o <em>completa</em></h2>
       <ul class="checks">
         <li>Mais 7 ideias (10 no total)</li>
         <li>Sua esteira recomendada, com as 3 ideias conectadas</li>
