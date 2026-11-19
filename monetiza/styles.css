@@ -370,6 +370,7 @@ main > .lp { width: 100%; margin: 0; }
 /* ---------- app: topo, início, salvas, copiar, suporte ---------- */
 .top, .foot { width: min(100% - 32px, 1100px); }
 .appnav { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 600; }
+.appnav a, .appnav button { white-space: nowrap; }
 .appnav a { color: var(--muted); text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent; }
 .appnav a[aria-current] { color: var(--plum); border-color: var(--plum); }
 .appnav .who { font-weight: 400; color: var(--muted); font-size: 14px; }
@@ -412,6 +413,11 @@ main > .home { width: min(100% - 32px, 1100px); display: grid; grid-template-col
   .appnav .who { display: none; }
   .appnav { gap: 16px; }
   .wa span { display: none; } .wa { padding: 0 16px; }
+}
+@media (max-width: 440px) {
+  .appnav { gap: 12px; font-size: 14px; }
+  .top .brand { font-size: 19px; gap: 6px; }
+  .top .brand .logo { width: 26px; height: 26px; }
 }
 
 /* ---------- tela de entrada (login) interativa ---------- */
